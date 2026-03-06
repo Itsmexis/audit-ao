@@ -1,3 +1,4 @@
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import type { Critere } from "../../data/mockAnalyseRC";
 
 export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere[] }) {
@@ -9,10 +10,10 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
         </span>
         <div>
           <h2 className="text-lg font-semibold text-gray-900">
-            Critères officiels
+            Critères du marché
           </h2>
           <p className="text-xs text-gray-500">
-            Reproduction fidèle du RC - aucune interprétation
+            Critères et sous-critères du marché extraits du règlement de consultation
           </p>
         </div>
       </div>
@@ -43,17 +44,20 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
                   className="px-4 py-3 flex items-start justify-between gap-4"
                 >
                   <div className="min-w-0">
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-gray-700 flex items-center gap-1.5">
                       <span className="font-medium text-gray-500 mr-2">
                         {sc.id}
                       </span>
                       {sc.nom}
+                      {sc.formuleNotation && (
+                        <span className="relative group">
+                          <InformationCircleIcon className="w-4 h-4 text-gray-400 hover:text-violet-500 cursor-help" />
+                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 whitespace-nowrap bg-gray-900 text-white text-xs font-mono px-3 py-1.5 rounded-lg shadow-lg">
+                            {sc.formuleNotation}
+                          </span>
+                        </span>
+                      )}
                     </p>
-                    {sc.formuleNotation && (
-                      <p className="mt-1 text-xs text-gray-400 font-mono bg-gray-50 inline-block px-2 py-0.5 rounded">
-                        {sc.formuleNotation}
-                      </p>
-                    )}
                   </div>
                   <span className="shrink-0 text-sm font-semibold text-gray-900">
                     {sc.ponderation} pts
@@ -63,50 +67,6 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Barre visuelle de repartition */}
-      <div className="mt-4 bg-white rounded-lg border border-gray-200 p-4">
-        <p className="text-xs font-medium text-gray-500 mb-2">
-          Répartition des pondérations
-        </p>
-        <div className="flex h-6 rounded-full overflow-hidden">
-          {criteres.map((c, i) => {
-            const colors = [
-              "bg-violet-500",
-              "bg-amber-500",
-              "bg-emerald-500",
-            ];
-            return (
-              <div
-                key={c.id}
-                className={`${colors[i % colors.length]} flex items-center justify-center`}
-                style={{ width: `${c.ponderation}%` }}
-              >
-                <span className="text-[10px] font-bold text-white">
-                  {c.ponderation}%
-                </span>
-              </div>
-            );
-          })}
-        </div>
-        <div className="flex gap-4 mt-2">
-          {criteres.map((c, i) => {
-            const dotColors = [
-              "bg-violet-500",
-              "bg-amber-500",
-              "bg-emerald-500",
-            ];
-            return (
-              <div key={c.id} className="flex items-center gap-1.5">
-                <span
-                  className={`w-2.5 h-2.5 rounded-full ${dotColors[i % dotColors.length]}`}
-                />
-                <span className="text-xs text-gray-600">{c.nom}</span>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

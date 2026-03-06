@@ -1,10 +1,9 @@
 const blocs = [
-  { id: "bloc-1", label: "Critères officiels", short: "1" },
+  { id: "bloc-1", label: "Critères du marché", short: "1" },
   { id: "bloc-2", label: "Attendus d'évaluation", short: "2" },
-  { id: "bloc-3", label: "Pondération estimative", short: "3" },
+  { id: "bloc-3", label: "Pondération estimée", short: "3" },
   { id: "bloc-4", label: "Matrice des risques", short: "4" },
   { id: "bloc-5", label: "Checklist candidat", short: "5" },
-  { id: "bloc-6", label: "Matrice de conformité", short: "6" },
 ];
 
 export default function BlocNav({ activeBloc }: { activeBloc: string }) {

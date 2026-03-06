@@ -1,3 +1,4 @@
+import { LightBulbIcon } from "@heroicons/react/24/outline";
 import type { PonderationSousCritere } from "../../data/mockAnalyseRC";
 
 export default function Bloc3GrillePonderation({
@@ -13,17 +14,13 @@ export default function Bloc3GrillePonderation({
         </span>
         <div>
           <h2 className="text-lg font-semibold text-gray-900">
-            Grille officieuse de pondération interne estimative
+            Pondération estimée
           </h2>
           <p className="text-xs text-gray-500">
-            Décomposition estimative par sous-critère
+            Ventilation de la note par critère/sous-critère
           </p>
         </div>
       </div>
-      <p className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5 mb-4 ml-11">
-        Pondération non contractuelle - estimations basées sur des marchés publics comparables.
-      </p>
-
       <div className="space-y-4">
         {ponderation.map((sc) => (
           <div
@@ -43,11 +40,16 @@ export default function Bloc3GrillePonderation({
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full text-sm table-fixed">
+                <colgroup>
+                  <col className="w-[30%]" />
+                  <col className="w-[10%]" />
+                  <col className="w-[60%]" />
+                </colgroup>
                 <thead>
                   <tr className="text-left text-xs text-gray-500 uppercase tracking-wide">
                     <th className="px-4 py-2 font-medium">Item</th>
-                    <th className="px-4 py-2 font-medium w-24 text-center">
+                    <th className="px-4 py-2 font-medium text-center">
                       Points
                     </th>
                     <th className="px-4 py-2 font-medium">Justification</th>
@@ -55,14 +57,28 @@ export default function Bloc3GrillePonderation({
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {sc.items.map((item, i) => (
-                    <tr key={i} className="hover:bg-gray-50">
+                    <tr
+                      key={i}
+                      className={`hover:bg-gray-50 ${item.pointsEstimes == null ? "bg-violet-50/30" : ""}`}
+                    >
                       <td className="px-4 py-2.5 text-gray-900 font-medium">
-                        {item.nom}
+                        <div className="flex items-center gap-1.5">
+                          {item.pointsEstimes == null && (
+                            <LightBulbIcon className="w-4 h-4 text-violet-400 shrink-0" />
+                          )}
+                          {item.nom}
+                        </div>
                       </td>
                       <td className="px-4 py-2.5 text-center">
-                        <span className="inline-flex items-center justify-center w-10 h-6 rounded-full bg-violet-100 text-violet-700 text-xs font-bold">
-                          {item.pointsEstimes}
-                        </span>
+                        {item.pointsEstimes != null ? (
+                          <span className="inline-flex items-center justify-center w-10 h-6 rounded-full bg-violet-100 text-violet-700 text-xs font-bold">
+                            {item.pointsEstimes}
+                          </span>
+                        ) : (
+                          <span className="text-[10px] text-violet-400 italic">
+                            suggestion
+                          </span>
+                        )}
                       </td>
                       <td className="px-4 py-2.5 text-gray-600">
                         {item.justification}
@@ -72,39 +88,6 @@ export default function Bloc3GrillePonderation({
                 </tbody>
               </table>
             </div>
-
-            {/* Barre de repartition mini */}
-            <div className="px-4 py-2 border-t border-gray-100">
-              <div className="flex h-2 rounded-full overflow-hidden bg-gray-100">
-                {sc.items.map((item, i) => {
-                  const shades = [
-                    "bg-violet-600",
-                    "bg-violet-500",
-                    "bg-violet-400",
-                    "bg-violet-300",
-                    "bg-violet-200",
-                  ];
-                  return (
-                    <div
-                      key={i}
-                      className={shades[i % shades.length]}
-                      style={{
-                        width: `${(item.pointsEstimes / sc.totalPoints) * 100}%`,
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            {sc.impactPrix && (
-              <div className="px-4 py-3 bg-amber-50 border-t border-amber-100">
-                <p className="text-xs text-amber-700">
-                  <span className="font-semibold">Impact prix :</span>{" "}
-                  {sc.impactPrix}
-                </p>
-              </div>
-            )}
           </div>
         ))}
       </div>

@@ -45,6 +45,11 @@ function buildCopyHtml(recap: RecapCritere[]): string {
   return html;
 }
 
+function parseScore(score: string): { obtained: number; total: number } {
+  const [obtained, total] = score.split("/").map(Number);
+  return { obtained, total };
+}
+
 export default function TableauPointsForts({
   recap,
 }: {
@@ -66,7 +71,6 @@ export default function TableauPointsForts({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // fallback
       await navigator.clipboard.writeText(html.replace(/<[^>]*>/g, ""));
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
@@ -74,15 +78,15 @@ export default function TableauPointsForts({
   };
 
   return (
-    <section id="recap-points-forts" className="scroll-mt-16">
+    <section id="synthese-reponse" className="scroll-mt-16">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
-            R
+            S
           </span>
           <div>
             <h2 className="text-lg font-semibold text-gray-900">
-              Récapitulatif des points forts
+              Synthèse de la réponse
             </h2>
             <p className="text-xs text-gray-500">
               Tableau de synthèse à intégrer dans le mémoire technique
@@ -137,6 +141,14 @@ export default function TableauPointsForts({
                 const reponses = sc.pointsForts.filter(
                   (pf) => pf.type === "reponse"
                 );
+                const { obtained, total } = parseScore(sc.scoreEstime);
+                const percentage = total > 0 ? (obtained / total) * 100 : 0;
+                const scoreColor =
+                  percentage >= 80
+                    ? "bg-emerald-100 text-emerald-700"
+                    : percentage >= 60
+                      ? "bg-amber-100 text-amber-700"
+                      : "bg-red-100 text-red-700";
 
                 return (
                   <div
@@ -150,9 +162,14 @@ export default function TableauPointsForts({
                         </span>
                         {sc.sousCritereNom}
                       </span>
+                      <span
+                        className={`text-xs font-bold px-2 py-0.5 rounded-md ${scoreColor}`}
+                      >
+                        {sc.scoreEstime}
+                      </span>
                     </div>
 
-                    {/* Au-delà des attentes (differenciants) - en premier */}
+                    {/* Au-delà des attentes (differenciants) */}
                     {differenciants.length > 0 && (
                       <div className="p-4">
                         <div className="flex items-center gap-1.5 mb-2">

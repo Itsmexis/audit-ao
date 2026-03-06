@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   ArrowDownTrayIcon,
   ClipboardDocumentCheckIcon,
 } from "@heroicons/react/24/outline";
 import ScrollToTop from "../components/ScrollToTop";
+import LoadingOverlay from "../components/LoadingOverlay";
 import { mockAudit } from "../data/mockAuditAO";
 import SourceSelection from "../components/audit-ao/SourceSelection";
 import AuditScoreHeader from "../components/audit-ao/AuditScoreHeader";
@@ -12,9 +13,11 @@ import AuditResultDetail from "../components/audit-ao/AuditResultDetail";
 import TableauPointsForts from "../components/audit-ao/TableauPointsForts";
 
 export default function AuditAO() {
+  const [isLoading, setIsLoading] = useState(false);
   const [showAudit, setShowAudit] = useState(false);
   const [activeSection, setActiveSection] = useState("audit-detail");
   const auditRef = useRef<HTMLDivElement>(null);
+  const loadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showAudit) return;
@@ -32,7 +35,7 @@ export default function AuditAO() {
     );
 
     const sections = document.querySelectorAll(
-      "#audit-detail, #recap-points-forts"
+      "#audit-detail, #synthese-reponse"
     );
     sections.forEach((s) => observer.observe(s));
 
@@ -40,11 +43,19 @@ export default function AuditAO() {
   }, [showAudit]);
 
   const handleLaunchAudit = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      loadingRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const handleLoadingComplete = useCallback(() => {
+    setIsLoading(false);
     setShowAudit(true);
     setTimeout(() => {
       auditRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
-  };
+  }, []);
 
   const data = mockAudit;
 
@@ -75,11 +86,21 @@ export default function AuditAO() {
       {/* Source Selection */}
       <SourceSelection onLaunchAudit={handleLaunchAudit} />
 
+      {/* Loading */}
+      {isLoading && (
+        <div ref={loadingRef}>
+          <LoadingOverlay
+            onComplete={handleLoadingComplete}
+            label="Audit en cours"
+          />
+        </div>
+      )}
+
       {/* Audit Results */}
       {showAudit && (
         <div ref={auditRef} className="mt-8">
           {/* Score header */}
-          <AuditScoreHeader data={data} />
+          <AuditScoreHeader data={data} recap={data.recap} />
 
           {/* Sticky nav */}
           <div className="mt-6" />
@@ -87,7 +108,7 @@ export default function AuditAO() {
 
           {/* Sections */}
           <div className="space-y-10 mt-8">
-            <AuditResultDetail criteres={data.criteres} />
+            <AuditResultDetail criteres={data.criteres} recap={data.recap} />
             <TableauPointsForts recap={data.recap} />
           </div>
         </div>

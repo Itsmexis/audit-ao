@@ -1,4 +1,4 @@
-export type StatutAudit = "couvert" | "partiel" | "absent" | "hors-sujet";
+export type StatutAudit = "present" | "partiel" | "absent" | "hors-sujet";
 
 export interface PointAudit {
   id: string;
@@ -52,7 +52,7 @@ export interface AuditAOData {
   memoireTitre: string;
   dateAudit: string;
   scoreGlobal: number;
-  couvertCount: number;
+  presentCount: number;
   partielCount: number;
   absentCount: number;
   horsSujetCount: number;
@@ -63,10 +63,10 @@ export interface AuditAOData {
 
 export const mockAudit: AuditAOData = {
   marcheRef: "CCVL-2026-SI-003",
-  memoireTitre: "Memoire technique - Maintenance et infogerance du SI",
+  memoireTitre: "Mémoire technique - Maintenance et infogérance du SI",
   dateAudit: "05/03/2026",
   scoreGlobal: 72,
-  couvertCount: 18,
+  presentCount: 18,
   partielCount: 7,
   absentCount: 4,
   horsSujetCount: 1,
@@ -80,165 +80,165 @@ export const mockAudit: AuditAOData = {
       sousCriteres: [
         {
           id: "C1.1",
-          nom: "Organisation et moyens affectes au marche",
+          nom: "Organisation et moyens affectés au marché",
           ponderation: 20,
           points: [
             {
               id: "p1",
               label: "Organigramme nominatif avec CV des intervenants",
-              statut: "couvert",
+              statut: "present",
               extrait:
-                "L'equipe dediee est composee de 4 techniciens certifies [...] cf. annexe 3 - CV detailles",
+                "L'équipe dédiée est composée de 4 techniciens certifiés [...] cf. annexe 3 - CV détaillés",
               commentaire:
-                "Organigramme present et detaille avec CV en annexe. Les certifications sont listees.",
+                "Organigramme présent et détaillé avec CV en annexe. Les certifications sont listées.",
             },
             {
               id: "p2",
-              label: "Certifications techniques des equipes",
-              statut: "couvert",
+              label: "Certifications techniques des équipes",
+              statut: "present",
               extrait:
                 "Certifications ITIL v4 Foundation, Microsoft 365 Certified, Cisco CCNA",
               commentaire:
-                "Certifications pertinentes et a jour. Bonne couverture du perimetre technique.",
+                "Certifications pertinentes et à jour. Bonne couverture du périmètre technique.",
             },
             {
               id: "p3",
-              label: "Responsable de compte identifie + suppleant",
-              statut: "couvert",
+              label: "Responsable de compte identifié + suppléant",
+              statut: "present",
               extrait:
-                "M. Dupont, responsable de compte dedie, sera votre interlocuteur unique. Mme Martin assure la suppleance.",
+                "M. Dupont, responsable de compte dédié, sera votre interlocuteur unique. Mme Martin assure la suppléance.",
               commentaire:
-                "Interlocuteur unique et suppleant clairement identifies avec coordonnees.",
+                "Interlocuteur unique et suppléant clairement identifiés avec coordonnées.",
             },
             {
               id: "p4",
-              label: "Moyens techniques (ITSM, supervision, telemaintenance)",
+              label: "Moyens techniques (ITSM, supervision, télémaintenance)",
               statut: "partiel",
               extrait:
                 "Nous utilisons un outil ITSM conforme aux bonnes pratiques ITIL.",
               commentaire:
-                "L'outil ITSM est mentionne mais pas nomme. Aucune mention de la supervision ni de la telemaintenance. Le jury attend des noms d'outils concrets et des captures d'ecran.",
+                "L'outil ITSM est mentionné mais pas nommé. Aucune mention de la supervision ni de la télémaintenance. Le jury attend des noms d'outils concrets et des captures d'écran.",
             },
             {
               id: "p5",
-              label: "Plan de charge previsionnel",
+              label: "Plan de charge prévisionnel",
               statut: "absent",
               extrait: undefined,
               commentaire:
-                "Aucun plan de charge previsionnel n'est presente. Le jury ne peut pas evaluer la disponibilite reelle de l'equipe. Risque de note fortement diminuee sur ce point.",
+                "Aucun plan de charge prévisionnel n'est présenté. Le jury ne peut pas évaluer la disponibilité réelle de l'équipe. Risque de note fortement diminuée sur ce point.",
             },
             {
               id: "p6",
-              label: "Couverture geographique des 12 sites",
-              statut: "couvert",
+              label: "Couverture géographique des 12 sites",
+              statut: "present",
               extrait:
-                "Notre agence de Tours, situee a 25 min maximum de l'ensemble des sites, permet une intervention rapide sur les 12 implantations.",
+                "Notre agence de Tours, située à 25 min maximum de l'ensemble des sites, permet une intervention rapide sur les 12 implantations.",
               commentaire:
-                "Temps de deplacement chiffre. Bonne adequation avec le perimetre multi-sites.",
+                "Temps de déplacement chiffré. Bonne adéquation avec le périmètre multi-sites.",
             },
           ],
         },
         {
           id: "C1.2",
-          nom: "Methodologie de maintenance preventive et curative",
+          nom: "Méthodologie de maintenance préventive et curative",
           ponderation: 25,
           points: [
             {
               id: "p7",
-              label: "Plan de maintenance preventive detaille",
-              statut: "couvert",
+              label: "Plan de maintenance préventive détaillé",
+              statut: "present",
               extrait:
-                "Le plan de maintenance preventive prevoit des interventions mensuelles [...] checklist par type d'equipement en annexe 5.",
+                "Le plan de maintenance préventive prévoit des interventions mensuelles [...] checklist par type d'équipement en annexe 5.",
               commentaire:
-                "Plan detaille avec frequences et checklist. Bien structure par type d'equipement.",
+                "Plan détaillé avec fréquences et checklist. Bien structuré par type d'équipement.",
             },
             {
               id: "p8",
               label: "Processus d'escalade avec logigramme",
-              statut: "couvert",
+              statut: "present",
               extrait:
-                "Le processus d'escalade est decrit page 14, accompagne d'un logigramme detaille.",
+                "Le processus d'escalade est décrit page 14, accompagné d'un logigramme détaillé.",
               commentaire:
-                "Logigramme present et lisible. Les niveaux d'escalade sont clairement definis.",
+                "Logigramme présent et lisible. Les niveaux d'escalade sont clairement définis.",
             },
             {
               id: "p9",
-              label: "Politique mises a jour et patchs securite",
+              label: "Politique mises à jour et patchs sécurité",
               statut: "partiel",
               extrait:
-                "Les mises a jour de securite sont appliquees regulierement selon les recommandations editeurs.",
+                "Les mises à jour de sécurité sont appliquées régulièrement selon les recommandations éditeurs.",
               commentaire:
-                "Trop vague. Le jury attend des frequences precises, une politique de test avant deploiement, et une reference aux preconisations ANSSI.",
+                "Trop vague. Le jury attend des fréquences précises, une politique de test avant déploiement, et une référence aux préconisations ANSSI.",
             },
             {
               id: "p10",
-              label: "PRA/PCA et procedures de sauvegarde",
+              label: "PRA/PCA et procédures de sauvegarde",
               statut: "partiel",
               extrait:
                 "Un PRA est en place avec des sauvegardes quotidiennes.",
               commentaire:
-                "Le PRA est mentionne mais pas detaille (RTO/RPO non precises). Les procedures de sauvegarde manquent de precision sur la retention et les tests de restauration.",
+                "Le PRA est mentionné mais pas détaillé (RTO/RPO non précisés). Les procédures de sauvegarde manquent de précision sur la rétention et les tests de restauration.",
             },
             {
               id: "p11",
-              label: "Tableaux de bord et KPI proposes",
-              statut: "couvert",
+              label: "Tableaux de bord et KPI proposés",
+              statut: "present",
               extrait:
-                "Nous proposons un tableau de bord mensuel avec les KPI suivants : taux de disponibilite, MTTR, taux de resolution premier appel, nombre d'incidents par site.",
+                "Nous proposons un tableau de bord mensuel avec les KPI suivants : taux de disponibilité, MTTR, taux de résolution premier appel, nombre d'incidents par site.",
               commentaire:
-                "KPI pertinents et mesurables. Bon alignement avec les attentes classiques des collectivites.",
+                "KPI pertinents et mesurables. Bon alignement avec les attentes classiques des collectivités.",
             },
             {
               id: "p12",
               label:
-                "[Differenciant] Volet cybersecurite dedie",
+                "[Différenciant] Volet cybersécurité dédié",
               statut: "absent",
               extrait: undefined,
               commentaire:
-                "Aucun volet cybersecurite dedie alors que le RC mentionne explicitement les exigences ANSSI et NIS2. C'est un manque significatif qui sera penalise.",
+                "Aucun volet cybersécurité dédié alors que le RC mentionne explicitement les exigences ANSSI et NIS2. C'est un manque significatif qui sera pénalisé.",
             },
           ],
         },
         {
           id: "C1.3",
-          nom: "Gestion des incidents et engagements de delais (GTI/GTR)",
+          nom: "Gestion des incidents et engagements de délais (GTI/GTR)",
           ponderation: 15,
           points: [
             {
               id: "p13",
-              label: "Grille GTI/GTR par criticite (P1-P4)",
-              statut: "couvert",
+              label: "Grille GTI/GTR par criticité (P1-P4)",
+              statut: "present",
               extrait:
                 "P1 (critique) : GTI 30min, GTR 4h | P2 (majeur) : GTI 1h, GTR 8h | P3 : GTI 4h, GTR 24h | P4 : GTI 8h, GTR 48h",
               commentaire:
-                "Grille complete et bien structuree. Les engagements sont ambitieux et coherents.",
+                "Grille complète et bien structurée. Les engagements sont ambitieux et cohérents.",
             },
             {
               id: "p14",
-              label: "Processus incident complet (declaration a cloture)",
-              statut: "couvert",
+              label: "Processus incident complet (déclaration à clôture)",
+              statut: "present",
               extrait:
-                "Le processus est decrit de la prise d'appel a la cloture avec validation utilisateur.",
+                "Le processus est décrit de la prise d'appel à la clôture avec validation utilisateur.",
               commentaire:
-                "Processus complet et bien documente. La validation utilisateur en fin de processus est un bon point.",
+                "Processus complet et bien documenté. La validation utilisateur en fin de processus est un bon point.",
             },
             {
               id: "p15",
-              label: "Dispositif d'astreinte detaille",
+              label: "Dispositif d'astreinte détaillé",
               statut: "partiel",
               extrait:
-                "Une astreinte est assuree en dehors des heures ouvrees.",
+                "Une astreinte est assurée en dehors des heures ouvrées.",
               commentaire:
-                "Trop vague. Le jury attend les plages horaires exactes, le nombre de personnes en astreinte, les moyens de contact, et le delai de rappel.",
+                "Trop vague. Le jury attend les plages horaires exactes, le nombre de personnes en astreinte, les moyens de contact, et le délai de rappel.",
             },
             {
               id: "p16",
-              label: "Outil de ticketing presente",
-              statut: "couvert",
+              label: "Outil de ticketing présenté",
+              statut: "present",
               extrait:
-                "Nous utilisons GLPI pour la gestion des tickets, avec portail utilisateur et suivi en temps reel.",
+                "Nous utilisons GLPI pour la gestion des tickets, avec portail utilisateur et suivi en temps réel.",
               commentaire:
-                "Outil nomme avec fonctionnalites detaillees. Le portail utilisateur est un plus.",
+                "Outil nommé avec fonctionnalités détaillées. Le portail utilisateur est un plus.",
             },
           ],
         },
@@ -246,7 +246,7 @@ export const mockAudit: AuditAOData = {
     },
     {
       id: "C3",
-      nom: "Developpement durable",
+      nom: "Développement durable",
       ponderation: 10,
       sousCriteres: [
         {
@@ -257,20 +257,20 @@ export const mockAudit: AuditAOData = {
             {
               id: "p17",
               label: "Gestion des DEEE conforme",
-              statut: "couvert",
+              statut: "present",
               extrait:
-                "Partenariat avec la filiere Ecologic pour le traitement des DEEE. Bordereau de suivi des dechets fourni.",
+                "Partenariat avec la filière Ecologic pour le traitement des DEEE. Bordereau de suivi des déchets fourni.",
               commentaire:
-                "Filiere identifiee avec tracabilite. Conforme aux exigences AGEC.",
+                "Filière identifiée avec traçabilité. Conforme aux exigences AGEC.",
             },
             {
               id: "p18",
-              label: "Actions reduction empreinte carbone",
+              label: "Actions réduction empreinte carbone",
               statut: "partiel",
               extrait:
-                "Nous privilegions la telemaintenance quand c'est possible.",
+                "Nous privilégions la télémaintenance quand c'est possible.",
               commentaire:
-                "Intention louable mais pas chiffree. Le jury attend un pourcentage cible d'interventions a distance et un plan de regroupement des deplacements.",
+                "Intention louable mais pas chiffrée. Le jury attend un pourcentage cible d'interventions à distance et un plan de regroupement des déplacements.",
             },
           ],
         },
@@ -281,28 +281,28 @@ export const mockAudit: AuditAOData = {
           points: [
             {
               id: "p19",
-              label: "Plan d'insertion avec heures chiffrees",
+              label: "Plan d'insertion avec heures chiffrées",
               statut: "absent",
               extrait: undefined,
               commentaire:
-                "Aucun plan d'insertion present. Le RC prevoit une clause de 5% des heures. Ce manque peut entrainer des penalites contractuelles et une note nulle sur ce point.",
+                "Aucun plan d'insertion présent. Le RC prévoit une clause de 5% des heures. Ce manque peut entraîner des pénalités contractuelles et une note nulle sur ce point.",
             },
             {
               id: "p20",
-              label: "Partenaires d'insertion identifies",
+              label: "Partenaires d'insertion identifiés",
               statut: "absent",
               extrait: undefined,
               commentaire:
-                "Aucun partenaire d'insertion mentionne. Il faut identifier des SIAE ou missions locales du territoire.",
+                "Aucun partenaire d'insertion mentionné. Il faut identifier des SIAE ou missions locales du territoire.",
             },
             {
               id: "p21",
-              label: "Hors sujet detecte",
+              label: "Hors sujet détecté",
               statut: "hors-sujet",
               extrait:
-                "Notre entreprise est engagee dans une demarche RSE globale avec un bilan carbone annuel.",
+                "Notre entreprise est engagée dans une démarche RSE globale avec un bilan carbone annuel.",
               commentaire:
-                "Ce paragraphe concerne la RSE globale de l'entreprise et non la politique sociale/insertion liee a ce marche. Le jury evaluera uniquement les actions specifiques au marche.",
+                "Ce paragraphe concerne la RSE globale de l'entreprise et non la politique sociale/insertion liée à ce marché. Le jury évaluera uniquement les actions spécifiques au marché.",
             },
           ],
         },
@@ -318,118 +318,118 @@ export const mockAudit: AuditAOData = {
       sousCriteres: [
         {
           sousCritereId: "C1.1",
-          sousCritereNom: "Organisation et moyens affectes au marche",
+          sousCritereNom: "Organisation et moyens affectés au marché",
           scoreEstime: "14/20",
           pointsForts: [
             {
               label:
-                "Equipe dediee de 4 techniciens certifies (ITIL v4, Microsoft 365, Cisco CCNA) avec organigramme nominatif et CV detailles en annexe",
+                "Équipe dédiée de 4 techniciens certifiés (ITIL v4, Microsoft 365, Cisco CCNA) avec organigramme nominatif et CV détaillés en annexe",
               type: "reponse",
             },
             {
               label:
-                "Interlocuteur unique identifie (M. Dupont) avec suppleant (Mme Martin), garantissant la continuite du pilotage",
+                "Interlocuteur unique identifié (M. Dupont) avec suppléant (Mme Martin), garantissant la continuité du pilotage",
               type: "reponse",
             },
             {
               label:
-                "Proximite geographique : agence de Tours a 25 min maximum des 12 sites, permettant une intervention rapide",
+                "Proximité géographique : agence de Tours à 25 min maximum des 12 sites, permettant une intervention rapide",
               type: "reponse",
             },
             {
               label:
-                "Couverture technique complete du perimetre avec des profils complementaires (systeme, reseau, poste de travail)",
+                "Couverture technique complète du périmètre avec des profils complémentaires (système, réseau, poste de travail)",
               type: "differenciant",
             },
           ],
           pointsFaibles: [
             {
-              label: "Outils de supervision et telemaintenance non detailles",
+              label: "Outils de supervision et télémaintenance non détaillés",
               amelioration:
-                "Nommer les outils (ex: Zabbix, TeamViewer) et fournir des captures d'ecran du dashboard de supervision",
+                "Nommer les outils (ex: Zabbix, TeamViewer) et fournir des captures d'écran du dashboard de supervision",
             },
             {
-              label: "Plan de charge previsionnel absent",
+              label: "Plan de charge prévisionnel absent",
               amelioration:
-                "Ajouter un tableau montrant la repartition ETP par site et par mois, demontrant la capacite d'absorption de la charge",
+                "Ajouter un tableau montrant la répartition ETP par site et par mois, démontrant la capacité d'absorption de la charge",
             },
           ],
         },
         {
           sousCritereId: "C1.2",
           sousCritereNom:
-            "Methodologie de maintenance preventive et curative",
+            "Méthodologie de maintenance préventive et curative",
           scoreEstime: "16/25",
           pointsForts: [
             {
               label:
-                "Plan de maintenance preventive structure par type d'equipement avec frequences et checklists detaillees",
+                "Plan de maintenance préventive structuré par type d'équipement avec fréquences et checklists détaillées",
               type: "reponse",
             },
             {
               label:
-                "Processus d'escalade clair avec logigramme lisible et niveaux d'escalade bien definis",
+                "Processus d'escalade clair avec logigramme lisible et niveaux d'escalade bien définis",
               type: "reponse",
             },
             {
               label:
-                "Tableaux de bord mensuels avec KPI pertinents : taux de disponibilite, MTTR, FCR, incidents par site",
+                "Tableaux de bord mensuels avec KPI pertinents : taux de disponibilité, MTTR, FCR, incidents par site",
               type: "reponse",
             },
             {
               label:
-                "Approche ITIL structuree demontrant une maturite methodologique superieure a la moyenne des candidats",
+                "Approche ITIL structurée démontrant une maturité méthodologique supérieure à la moyenne des candidats",
               type: "differenciant",
             },
           ],
           pointsFaibles: [
             {
               label:
-                "Politique de patchs de securite vague ('regulierement selon recommandations editeurs')",
+                "Politique de patchs de sécurité vague ('régulièrement selon recommandations éditeurs')",
               amelioration:
-                "Detailler : frequence de veille (quotidienne), delai d'application (critique <48h, standard <30j), processus de test, reference aux guides ANSSI",
+                "Détailler : fréquence de veille (quotidienne), délai d'application (critique <48h, standard <30j), processus de test, référence aux guides ANSSI",
             },
             {
               label:
-                "PRA/PCA incomplet : RTO/RPO non precises, tests de restauration non mentionnes",
+                "PRA/PCA incomplet : RTO/RPO non précisés, tests de restauration non mentionnés",
               amelioration:
-                "Preciser les objectifs RTO/RPO par service, la frequence des tests de restauration (trimestrielle), et le plan de communication en cas de sinistre",
+                "Préciser les objectifs RTO/RPO par service, la fréquence des tests de restauration (trimestrielle), et le plan de communication en cas de sinistre",
             },
             {
-              label: "Absence totale de volet cybersecurite dedie",
+              label: "Absence totale de volet cybersécurité dédié",
               amelioration:
-                "Ajouter une section dediee : audits de vulnerabilites trimestriels, sensibilisation des agents, conformite NIS2, politique de mots de passe, chiffrement",
+                "Ajouter une section dédiée : audits de vulnérabilités trimestriels, sensibilisation des agents, conformité NIS2, politique de mots de passe, chiffrement",
             },
           ],
         },
         {
           sousCritereId: "C1.3",
           sousCritereNom:
-            "Gestion des incidents et engagements de delais (GTI/GTR)",
+            "Gestion des incidents et engagements de délais (GTI/GTR)",
           scoreEstime: "11/15",
           pointsForts: [
             {
               label:
-                "Grille GTI/GTR ambitieuse et differenciee par criticite (P1: GTI 30min/GTR 4h jusqu'a P4: GTI 8h/GTR 48h)",
+                "Grille GTI/GTR ambitieuse et différenciée par criticité (P1: GTI 30min/GTR 4h jusqu'à P4: GTI 8h/GTR 48h)",
               type: "reponse",
             },
             {
               label:
-                "Processus de gestion des incidents complet de la declaration a la cloture avec validation utilisateur",
+                "Processus de gestion des incidents complet de la déclaration à la clôture avec validation utilisateur",
               type: "reponse",
             },
             {
               label:
-                "Utilisation de GLPI avec portail utilisateur et suivi temps reel, offrant transparence et tracabilite",
+                "Utilisation de GLPI avec portail utilisateur et suivi temps réel, offrant transparence et traçabilité",
               type: "differenciant",
             },
           ],
           pointsFaibles: [
             {
               label:
-                "Dispositif d'astreinte insuffisamment detaille ('en dehors des heures ouvrees')",
+                "Dispositif d'astreinte insuffisamment détaillé ('en dehors des heures ouvrées')",
               amelioration:
-                "Preciser : plages horaires (ex: 7h-22h L-S, astreinte telephonique D/feries), nombre de personnes, delai de rappel (<15min), moyens de contact",
+                "Préciser : plages horaires (ex: 7h-22h L-S, astreinte téléphonique D/fériés), nombre de personnes, délai de rappel (<15min), moyens de contact",
             },
           ],
         },
@@ -437,7 +437,7 @@ export const mockAudit: AuditAOData = {
     },
     {
       critereId: "C3",
-      critereNom: "Developpement durable",
+      critereNom: "Développement durable",
       ponderation: 10,
       sousCriteres: [
         {
@@ -447,16 +447,16 @@ export const mockAudit: AuditAOData = {
           pointsForts: [
             {
               label:
-                "Partenariat avec la filiere Ecologic pour le traitement des DEEE avec bordereau de suivi, assurant la conformite AGEC",
+                "Partenariat avec la filière Ecologic pour le traitement des DEEE avec bordereau de suivi, assurant la conformité AGEC",
               type: "reponse",
             },
           ],
           pointsFaibles: [
             {
               label:
-                "Engagement de telemaintenance non chiffre ('quand c'est possible')",
+                "Engagement de télémaintenance non chiffré ('quand c'est possible')",
               amelioration:
-                "Fixer un objectif chiffre (ex: 60% d'interventions a distance), planifier le regroupement des deplacements avec un calendrier type",
+                "Fixer un objectif chiffré (ex: 60% d'interventions à distance), planifier le regroupement des déplacements avec un calendrier type",
             },
           ],
         },
@@ -469,18 +469,18 @@ export const mockAudit: AuditAOData = {
             {
               label: "Plan d'insertion totalement absent",
               amelioration:
-                "Rediger un plan d'insertion detaille : 5% minimum des heures, profils vises, planning de montee en competences, indicateurs de suivi trimestriels",
+                "Rédiger un plan d'insertion détaillé : 5% minimum des heures, profils visés, planning de montée en compétences, indicateurs de suivi trimestriels",
             },
             {
-              label: "Aucun partenaire d'insertion identifie",
+              label: "Aucun partenaire d'insertion identifié",
               amelioration:
-                "Contacter des SIAE et missions locales du Val de Loire. Formaliser des lettres d'engagement ou conventions de partenariat a joindre en annexe",
+                "Contacter des SIAE et missions locales du Val de Loire. Formaliser des lettres d'engagement ou conventions de partenariat à joindre en annexe",
             },
             {
               label:
-                "Contenu hors sujet : RSE globale au lieu d'actions specifiques au marche",
+                "Contenu hors sujet : RSE globale au lieu d'actions spécifiques au marché",
               amelioration:
-                "Remplacer le paragraphe RSE generique par des actions concretes liees a l'execution de ce marche specifique",
+                "Remplacer le paragraphe RSE générique par des actions concrètes liées à l'exécution de ce marché spécifique",
             },
           ],
         },

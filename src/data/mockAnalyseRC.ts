@@ -22,7 +22,7 @@ export interface Attendu {
 
 export interface ItemPonderation {
   nom: string;
-  pointsEstimes: number;
+  pointsEstimes?: number;
   justification: string;
 }
 
@@ -105,8 +105,6 @@ export const mockAnalyse: AnalyseRC = {
           id: "C1.2",
           nom: "M\u00e9thodologie de maintenance pr\u00e9ventive et curative",
           ponderation: 25,
-          formuleNotation:
-            "Note = (Appr\u00e9ciation du jury / 10) x pond\u00e9ration",
         },
         {
           id: "C1.3",
@@ -263,6 +261,16 @@ export const mockAnalyse: AnalyseRC = {
           justification:
             "Permet au jury de v\u00e9rifier que le candidat n'est pas en surcharge sur d'autres march\u00e9s.",
         },
+        {
+          nom: "R\u00e9f\u00e9rences clients similaires",
+          justification:
+            "Inclure 3 \u00e0 5 r\u00e9f\u00e9rences en collectivit\u00e9 territoriale multi-sites avec attestations de bonne ex\u00e9cution.",
+        },
+        {
+          nom: "Plan de formation continue des \u00e9quipes",
+          justification:
+            "D\u00e9montrer que les comp\u00e9tences de l'\u00e9quipe seront maintenues \u00e0 jour sur la dur\u00e9e du march\u00e9 (certifications, veille techno).",
+        },
       ],
     },
     {
@@ -301,6 +309,16 @@ export const mockAnalyse: AnalyseRC = {
           justification:
             "Permet au jury de voir que le prestataire s'engage sur des r\u00e9sultats mesurables.",
         },
+        {
+          nom: "Comit\u00e9s de pilotage et gouvernance",
+          justification:
+            "Proposer un calendrier de comit\u00e9s (mensuel/trimestriel) avec ordre du jour type et livrables attendus.",
+        },
+        {
+          nom: "Roadmap d'am\u00e9lioration continue",
+          justification:
+            "Pr\u00e9senter une vision d'\u00e9volution du SI sur la dur\u00e9e du march\u00e9 pour d\u00e9montrer une approche proactive.",
+        },
       ],
     },
     {
@@ -333,9 +351,12 @@ export const mockAnalyse: AnalyseRC = {
           justification:
             "Les candidats acceptant des p\u00e9nalit\u00e9s d\u00e9montrent leur confiance dans leur capacit\u00e9 de livraison.",
         },
+        {
+          nom: "Sc\u00e9nario de crise multi-sites",
+          justification:
+            "D\u00e9crire la gestion d'un incident majeur simultan\u00e9 sur plusieurs sites : r\u00e9partition des \u00e9quipes, priorit\u00e9s, communication.",
+        },
       ],
-      impactPrix:
-        "Le crit\u00e8re prix (30%) utilise la formule inversement proportionnelle. Un \u00e9cart de 10% sur le prix forfaitaire repr\u00e9sente environ 2 points sur 20. La valeur technique (60%) offre donc un levier de diff\u00e9renciation 2x plus important que le prix.",
     },
     {
       sousCritereId: "C3.1",

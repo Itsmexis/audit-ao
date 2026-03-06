@@ -15,10 +15,12 @@ export default function UploadSection({ onAnalyse }: { onAnalyse: () => void }) 
       setRcFile({ name: "RC_CCVL-2026-SI-003.pdf", type: "rc" });
     } else {
       const labels = { cctp: "CCTP", ccap: "CCAP", autre: "Document" };
-      setComplementFiles((prev) => [
-        ...prev,
-        { name: `${labels[type]}_${prev.length + 1}.pdf`, type },
-      ]);
+      setComplementFiles((prev) => {
+        if ((type === "cctp" || type === "ccap") && prev.some((f) => f.type === type)) {
+          return prev;
+        }
+        return [...prev, { name: `${labels[type]}_${prev.length + 1}.pdf`, type }];
+      });
     }
   };
 
@@ -99,16 +101,26 @@ export default function UploadSection({ onAnalyse }: { onAnalyse: () => void }) 
               </div>
             ))}
             <div className="flex gap-2 flex-wrap">
-              {(["cctp", "ccap", "autre"] as const).map((type) => (
-                <button
-                  key={type}
-                  onClick={() => handleFakeUpload(type)}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 hover:border-gray-300 transition-colors"
-                >
-                  <DocumentPlusIcon className="w-4 h-4" />
-                  {type === "autre" ? "Autre pièce" : type.toUpperCase()}
-                </button>
-              ))}
+              {(["cctp", "ccap", "autre"] as const).map((type) => {
+                const alreadyAdded =
+                  (type === "cctp" || type === "ccap") &&
+                  complementFiles.some((f) => f.type === type);
+                return (
+                  <button
+                    key={type}
+                    onClick={() => handleFakeUpload(type)}
+                    disabled={alreadyAdded}
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg border transition-colors ${
+                      alreadyAdded
+                        ? "text-gray-300 bg-gray-50 border-gray-100 cursor-not-allowed"
+                        : "text-gray-600 bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300"
+                    }`}
+                  >
+                    <DocumentPlusIcon className="w-4 h-4" />
+                    {type === "autre" ? "Autre pièce" : type.toUpperCase()}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

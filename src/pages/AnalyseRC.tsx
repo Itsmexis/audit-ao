@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   ArrowDownTrayIcon,
   DocumentMagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import ScrollToTop from "../components/ScrollToTop";
+import LoadingOverlay from "../components/LoadingOverlay";
 import { mockAnalyse } from "../data/mockAnalyseRC";
 import UploadSection from "../components/analyse-rc/UploadSection";
 import BlocNav from "../components/analyse-rc/BlocNav";
@@ -12,12 +13,14 @@ import Bloc2AnalyseAttendus from "../components/analyse-rc/Bloc2AnalyseAttendus"
 import Bloc3GrillePonderation from "../components/analyse-rc/Bloc3GrillePonderation";
 import Bloc4MatriceRisques from "../components/analyse-rc/Bloc4MatriceRisques";
 import Bloc5ChecklistCandidat from "../components/analyse-rc/Bloc5ChecklistCandidat";
-import Bloc6MatriceConformite from "../components/analyse-rc/Bloc6MatriceConformite";
+
 
 export default function AnalyseRC() {
+  const [isLoading, setIsLoading] = useState(false);
   const [showAnalyse, setShowAnalyse] = useState(false);
   const [activeBloc, setActiveBloc] = useState("bloc-1");
   const analyseRef = useRef<HTMLDivElement>(null);
+  const loadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!showAnalyse) return;
@@ -41,11 +44,19 @@ export default function AnalyseRC() {
   }, [showAnalyse]);
 
   const handleAnalyse = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      loadingRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const handleLoadingComplete = useCallback(() => {
+    setIsLoading(false);
     setShowAnalyse(true);
     setTimeout(() => {
       analyseRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
-  };
+  }, []);
 
   const data = mockAnalyse;
 
@@ -61,7 +72,7 @@ export default function AnalyseRC() {
             </h1>
           </div>
           <p className="mt-1 text-sm text-gray-500 ml-10">
-            Importez votre RC pour obtenir une analyse experte structurée en 6 blocs actionnables.
+            Importez votre RC pour obtenir une analyse experte structurée en 5 blocs actionnables.
           </p>
         </div>
         {showAnalyse && (
@@ -74,6 +85,16 @@ export default function AnalyseRC() {
 
       {/* Upload Section */}
       <UploadSection onAnalyse={handleAnalyse} />
+
+      {/* Loading */}
+      {isLoading && (
+        <div ref={loadingRef}>
+          <LoadingOverlay
+            onComplete={handleLoadingComplete}
+            label="Analyse en cours"
+          />
+        </div>
+      )}
 
       {/* Analyse Results */}
       {showAnalyse && (
@@ -111,7 +132,6 @@ export default function AnalyseRC() {
             <Bloc3GrillePonderation ponderation={data.bloc3} />
             <Bloc4MatriceRisques risques={data.bloc4} />
             <Bloc5ChecklistCandidat checklist={data.bloc5} />
-            <Bloc6MatriceConformite conformite={data.bloc6} />
           </div>
         </div>
       )}

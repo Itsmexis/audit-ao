@@ -26,9 +26,6 @@ export default function Bloc2AnalyseAttendus({ attendus }: { attendus: Attendu[]
           </p>
         </div>
       </div>
-      <p className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5 mb-4 ml-11">
-        Les éléments ci-dessous sont des interprétations probabilistes, distinctes des critères officiels du Bloc 1.
-      </p>
 
       <div className="space-y-3">
         {attendus.map((a) => {

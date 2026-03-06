@@ -1,6 +1,6 @@
 const sections = [
   { id: "audit-detail", label: "Audit détaillé", short: "A" },
-  { id: "recap-points-forts", label: "Récapitulatif points forts", short: "R" },
+  { id: "synthese-reponse", label: "Synthèse de la réponse", short: "S" },
 ];
 
 export default function AuditNav({ activeSection }: { activeSection: string }) {
