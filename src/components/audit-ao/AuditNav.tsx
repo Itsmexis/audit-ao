@@ -1,5 +1,6 @@
 const sections = [
   { id: "audit-detail", label: "Audit détaillé", short: "A" },
+  { id: "recommandations", label: "Recommandations", short: "R" },
   { id: "synthese-reponse", label: "Synthèse de la réponse", short: "S" },
 ];
 

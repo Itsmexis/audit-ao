@@ -17,7 +17,7 @@ export default function Bloc3GrillePonderation({
             Pondération estimée
           </h2>
           <p className="text-xs text-gray-500">
-            Ventilation de la note par critère/sous-critère
+            Ventilation probable de la note par critère/sous-critère
           </p>
         </div>
       </div>

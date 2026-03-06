@@ -10,6 +10,7 @@ import SourceSelection from "../components/audit-ao/SourceSelection";
 import AuditScoreHeader from "../components/audit-ao/AuditScoreHeader";
 import AuditNav from "../components/audit-ao/AuditNav";
 import AuditResultDetail from "../components/audit-ao/AuditResultDetail";
+import RecommandationsAmelioration from "../components/audit-ao/RecommandationsAmelioration";
 import TableauPointsForts from "../components/audit-ao/TableauPointsForts";
 
 export default function AuditAO() {
@@ -35,7 +36,7 @@ export default function AuditAO() {
     );
 
     const sections = document.querySelectorAll(
-      "#audit-detail, #synthese-reponse"
+      "#audit-detail, #recommandations, #synthese-reponse"
     );
     sections.forEach((s) => observer.observe(s));
 
@@ -109,6 +110,7 @@ export default function AuditAO() {
           {/* Sections */}
           <div className="space-y-10 mt-8">
             <AuditResultDetail criteres={data.criteres} recap={data.recap} />
+            <RecommandationsAmelioration recommandations={data.recommandations} />
             <TableauPointsForts recap={data.recap} />
           </div>
         </div>

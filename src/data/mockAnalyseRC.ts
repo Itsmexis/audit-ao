@@ -31,7 +31,7 @@ export interface PonderationSousCritere {
   sousCritereNom: string;
   totalPoints: number;
   items: ItemPonderation[];
-  impactPrix?: string;
+
 }
 
 export interface Risque {
@@ -51,17 +51,6 @@ export interface ChecklistItem {
   erreursPenalisantes: string[];
 }
 
-export interface ConformiteItem {
-  id: string;
-  label: string;
-  conforme: boolean | null;
-}
-
-export interface ConformiteGroupe {
-  critere: string;
-  items: ConformiteItem[];
-}
-
 export interface AnalyseRC {
   marcheInfo: {
     objet: string;
@@ -76,7 +65,6 @@ export interface AnalyseRC {
   bloc3: PonderationSousCritere[];
   bloc4: Risque[];
   bloc5: ChecklistItem[];
-  bloc6: ConformiteGroupe[];
 }
 
 export const mockAnalyse: AnalyseRC = {
@@ -581,177 +569,6 @@ export const mockAnalyse: AnalyseRC = {
         "Ne pas chiffrer les heures d'insertion",
         "Absence de partenaires d'insertion identifi\u00e9s",
         "Confondre insertion et formation classique des salari\u00e9s",
-      ],
-    },
-  ],
-
-  bloc6: [
-    {
-      critere: "C1.1 - Organisation et moyens",
-      items: [
-        {
-          id: "conf-1",
-          label: "Organigramme nominatif avec CV des intervenants",
-          conforme: null,
-        },
-        {
-          id: "conf-2",
-          label: "Certifications techniques list\u00e9es",
-          conforme: null,
-        },
-        {
-          id: "conf-3",
-          label: "Responsable de compte identifi\u00e9 + suppl\u00e9ant",
-          conforme: null,
-        },
-        {
-          id: "conf-4",
-          label:
-            "Moyens techniques d\u00e9taill\u00e9s (ITSM, supervision)",
-          conforme: null,
-        },
-        {
-          id: "conf-5",
-          label: "Plan de charge pr\u00e9visionnel",
-          conforme: null,
-        },
-        {
-          id: "conf-6",
-          label: "Couverture g\u00e9ographique des 12 sites",
-          conforme: null,
-        },
-        {
-          id: "conf-7",
-          label:
-            "[Diff\u00e9renciant] Dashboard supervision temps r\u00e9el",
-          conforme: null,
-        },
-        {
-          id: "conf-8",
-          label:
-            "[Diff\u00e9renciant] Engagement stabilit\u00e9 des \u00e9quipes",
-          conforme: null,
-        },
-      ],
-    },
-    {
-      critere: "C1.2 - M\u00e9thodologie de maintenance",
-      items: [
-        {
-          id: "conf-9",
-          label: "Plan de maintenance pr\u00e9ventive d\u00e9taill\u00e9",
-          conforme: null,
-        },
-        {
-          id: "conf-10",
-          label: "Processus d'escalade avec logigramme",
-          conforme: null,
-        },
-        {
-          id: "conf-11",
-          label: "Politique mises \u00e0 jour et patchs s\u00e9curit\u00e9",
-          conforme: null,
-        },
-        {
-          id: "conf-12",
-          label: "PRA/PCA et proc\u00e9dures de sauvegarde",
-          conforme: null,
-        },
-        {
-          id: "conf-13",
-          label: "Tableaux de bord et KPI propos\u00e9s",
-          conforme: null,
-        },
-        {
-          id: "conf-14",
-          label:
-            "[Diff\u00e9renciant] Volet cybers\u00e9curit\u00e9 d\u00e9di\u00e9",
-          conforme: null,
-        },
-        {
-          id: "conf-15",
-          label:
-            "[Diff\u00e9renciant] Roadmap am\u00e9lioration continue",
-          conforme: null,
-        },
-      ],
-    },
-    {
-      critere: "C1.3 - Gestion des incidents et SLA",
-      items: [
-        {
-          id: "conf-16",
-          label: "Grille GTI/GTR par criticit\u00e9 (P1-P4)",
-          conforme: null,
-        },
-        {
-          id: "conf-17",
-          label:
-            "Processus incident complet (d\u00e9claration \u2192 cl\u00f4ture)",
-          conforme: null,
-        },
-        {
-          id: "conf-18",
-          label: "Dispositif d'astreinte d\u00e9taill\u00e9",
-          conforme: null,
-        },
-        {
-          id: "conf-19",
-          label: "Outil de ticketing pr\u00e9sent\u00e9",
-          conforme: null,
-        },
-        {
-          id: "conf-20",
-          label:
-            "[Diff\u00e9renciant] GTI/GTR sup\u00e9rieurs aux minimums",
-          conforme: null,
-        },
-        {
-          id: "conf-21",
-          label: "[Diff\u00e9renciant] Portail client temps r\u00e9el",
-          conforme: null,
-        },
-      ],
-    },
-    {
-      critere: "C3.1 - Actions environnementales",
-      items: [
-        {
-          id: "conf-22",
-          label: "Gestion des DEEE conforme",
-          conforme: null,
-        },
-        {
-          id: "conf-23",
-          label: "Actions r\u00e9duction empreinte carbone",
-          conforme: null,
-        },
-        {
-          id: "conf-24",
-          label: "[Diff\u00e9renciant] Bilan carbone pr\u00e9visionnel",
-          conforme: null,
-        },
-      ],
-    },
-    {
-      critere: "C3.2 - Politique sociale et insertion",
-      items: [
-        {
-          id: "conf-25",
-          label: "Plan d'insertion avec heures chiffr\u00e9es",
-          conforme: null,
-        },
-        {
-          id: "conf-26",
-          label: "Partenaires d'insertion identifi\u00e9s",
-          conforme: null,
-        },
-        {
-          id: "conf-27",
-          label:
-            "[Diff\u00e9renciant] Engagement > 5% heures insertion",
-          conforme: null,
-        },
       ],
     },
   ],

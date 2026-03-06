@@ -47,11 +47,17 @@ export interface RecapCritere {
   sousCriteres: RecapSousCritere[];
 }
 
+export interface Recommandation {
+  type: "erreur" | "incoherence" | "amelioration";
+  titre: string;
+  description: string;
+  page?: string;
+}
+
 export interface AuditAOData {
   marcheRef: string;
   memoireTitre: string;
   dateAudit: string;
-  scoreGlobal: number;
   presentCount: number;
   partielCount: number;
   absentCount: number;
@@ -59,13 +65,13 @@ export interface AuditAOData {
   totalPoints: number;
   criteres: CritereAudit[];
   recap: RecapCritere[];
+  recommandations: Recommandation[];
 }
 
 export const mockAudit: AuditAOData = {
   marcheRef: "CCVL-2026-SI-003",
   memoireTitre: "Mémoire technique - Maintenance et infogérance du SI",
   dateAudit: "05/03/2026",
-  scoreGlobal: 72,
   presentCount: 18,
   partielCount: 7,
   absentCount: 4,
@@ -485,6 +491,61 @@ export const mockAudit: AuditAOData = {
           ],
         },
       ],
+    },
+  ],
+
+  recommandations: [
+    {
+      type: "erreur",
+      titre: "Référence au mauvais marché dans l'introduction",
+      description:
+        "L'introduction du mémoire cite la référence « CCVL-2025-SI-001 » alors que le marché est « CCVL-2026-SI-003 ». Ce type d'erreur donne l'impression d'un mémoire recyclé d'un autre appel d'offres.",
+      page: "p. 2",
+    },
+    {
+      type: "erreur",
+      titre: "Sommaire absent",
+      description:
+        "Le mémoire ne contient pas de sommaire paginé. Le jury doit naviguer à l'aveugle dans les 35 pages. Un sommaire reprenant les intitulés exacts des critères du RC est indispensable.",
+    },
+    {
+      type: "incoherence",
+      titre: "Nombre de techniciens incohérent entre les sections",
+      description:
+        "La section Organisation (p. 5) annonce 4 techniciens dédiés, mais le plan de charge (p. 18) mentionne 3 ETP. Le jury relèvera cette incohérence qui fragilise la crédibilité du chiffrage.",
+      page: "p. 5 / p. 18",
+    },
+    {
+      type: "incoherence",
+      titre: "GTR annoncés incompatibles avec le dispositif d'astreinte",
+      description:
+        "Vous vous engagez sur une GTR de 4h en P1, mais le dispositif d'astreinte ne couvre que les heures ouvrées. Un incident P1 le week-end ne pourrait pas être résolu dans les délais annoncés.",
+      page: "p. 14 / p. 22",
+    },
+    {
+      type: "amelioration",
+      titre: "Section cybersécurité à créer de toute pièce",
+      description:
+        "Le mémoire n'aborde pas du tout la cybersécurité alors que le RC y fait explicitement référence (ANSSI, NIS2). L'absence totale de cette thématique risque de coûter des points sur C1.2.",
+    },
+    {
+      type: "amelioration",
+      titre: "Aucun visuel dans les 35 pages",
+      description:
+        "Le mémoire est un bloc de texte continu sans schéma, logigramme ni tableau récapitulatif. Ajouter un organigramme visuel, un logigramme d'escalade et un planning de transition rendrait le document plus lisible et convaincant.",
+    },
+    {
+      type: "amelioration",
+      titre: "Personnalisation insuffisante au contexte de la collectivité",
+      description:
+        "Le nom de la Communauté de communes du Val de Loire n'apparaît que 2 fois dans le mémoire. Plusieurs passages sont génériques et pourraient s'appliquer à n'importe quel client. Personnaliser avec le nombre de sites (12), les spécificités locales et les enjeux mentionnés dans le RC.",
+    },
+    {
+      type: "erreur",
+      titre: "Annexe 3 référencée mais absente",
+      description:
+        "La section C1.1 renvoie à « l'annexe 3 - CV détaillés des intervenants » mais cette annexe n'est pas jointe au mémoire. Le jury ne pourra pas vérifier les qualifications annoncées.",
+      page: "p. 6",
     },
   ],
 };
