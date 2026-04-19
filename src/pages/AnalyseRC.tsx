@@ -66,7 +66,7 @@ export default function AnalyseRC() {
       <div className="flex items-start justify-between mb-6">
         <div>
           <div className="flex items-center gap-3">
-            <DocumentMagnifyingGlassIcon className="w-7 h-7 text-violet-600" />
+            <DocumentMagnifyingGlassIcon className="w-7 h-7 text-blue-600" />
             <h1 className="text-2xl font-bold text-gray-900">
               Analyse de Règlement de Consultation
             </h1>
@@ -100,7 +100,7 @@ export default function AnalyseRC() {
       {showAnalyse && (
         <div ref={analyseRef} className="mt-8">
           {/* Marche info banner */}
-          <div className="bg-violet-50 border border-violet-200 rounded-xl p-4 mb-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 text-sm">
               {[
                 { label: "Référence", value: data.marcheInfo.reference },
@@ -111,7 +111,7 @@ export default function AnalyseRC() {
                 { label: "Date remise", value: data.marcheInfo.dateRemise },
               ].map((item) => (
                 <div key={item.label}>
-                  <p className="text-xs font-medium text-violet-600">
+                  <p className="text-xs font-medium text-blue-600">
                     {item.label}
                   </p>
                   <p className="text-gray-900 font-medium truncate" title={item.value}>

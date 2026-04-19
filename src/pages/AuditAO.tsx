@@ -66,7 +66,7 @@ export default function AuditAO() {
       <div className="flex items-start justify-between mb-6">
         <div>
           <div className="flex items-center gap-3">
-            <ClipboardDocumentCheckIcon className="w-7 h-7 text-violet-600" />
+            <ClipboardDocumentCheckIcon className="w-7 h-7 text-blue-600" />
             <h1 className="text-2xl font-bold text-gray-900">
               Audit du Mémoire Technique
             </h1>

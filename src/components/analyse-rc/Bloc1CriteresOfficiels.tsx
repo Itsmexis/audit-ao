@@ -5,7 +5,7 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
   return (
     <section id="bloc-1" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
           1
         </span>
         <div>
@@ -31,7 +31,7 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
                   {critere.nom}
                 </span>
               </div>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-violet-100 text-violet-700">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">
                 {critere.ponderation}%
               </span>
             </div>
@@ -51,7 +51,7 @@ export default function Bloc1CriteresOfficiels({ criteres }: { criteres: Critere
                       {sc.nom}
                       {sc.formuleNotation && (
                         <span className="relative group">
-                          <InformationCircleIcon className="w-4 h-4 text-gray-400 hover:text-violet-500 cursor-help" />
+                          <InformationCircleIcon className="w-4 h-4 text-gray-400 hover:text-blue-500 cursor-help" />
                           <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 whitespace-nowrap bg-gray-900 text-white text-xs font-mono px-3 py-1.5 rounded-lg shadow-lg">
                             {sc.formuleNotation}
                           </span>

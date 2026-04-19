@@ -14,7 +14,7 @@ export default function Bloc2AnalyseAttendus({ attendus }: { attendus: Attendu[]
   return (
     <section id="bloc-2" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-1">
-        <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
           2
         </span>
         <div>
@@ -40,7 +40,7 @@ export default function Bloc2AnalyseAttendus({ attendus }: { attendus: Attendu[]
                 className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
               >
                 <span className="text-sm font-semibold text-gray-900">
-                  <span className="text-violet-600 mr-2">
+                  <span className="text-blue-600 mr-2">
                     {a.sousCritereId}
                   </span>
                   {a.sousCritereNom}
@@ -56,7 +56,7 @@ export default function Bloc2AnalyseAttendus({ attendus }: { attendus: Attendu[]
                 <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
                   {/* Finalite probable */}
                   <div className="p-4">
-                    <h4 className="text-xs font-semibold text-violet-600 uppercase tracking-wide mb-2">
+                    <h4 className="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">
                       Finalité probable
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed">

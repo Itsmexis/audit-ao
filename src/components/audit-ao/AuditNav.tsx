@@ -20,14 +20,14 @@ export default function AuditNav({ activeSection }: { activeSection: string }) {
               onClick={() => scrollTo(section.id)}
               className={`shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-violet-100 text-violet-700"
+                  ? "bg-blue-100 text-blue-700"
                   : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
               }`}
             >
               <span
                 className={`w-5 h-5 rounded-full text-xs flex items-center justify-center font-semibold ${
                   isActive
-                    ? "bg-violet-600 text-white"
+                    ? "bg-blue-600 text-white"
                     : "bg-gray-200 text-gray-600"
                 }`}
               >

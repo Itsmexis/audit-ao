@@ -42,13 +42,13 @@ export default function UploadSection({ onAnalyse }: { onAnalyse: () => void }) 
             <span className="text-red-500 ml-1">*</span>
           </label>
           {rcFile ? (
-            <div className="flex items-center gap-3 p-4 bg-violet-50 border border-violet-200 rounded-lg">
-              <DocumentArrowUpIcon className="w-8 h-8 text-violet-500 shrink-0" />
+            <div className="flex items-center gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <DocumentArrowUpIcon className="w-8 h-8 text-blue-500 shrink-0" />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-gray-900 truncate">
                   {rcFile.name}
                 </p>
-                <p className="text-xs text-violet-600">Document principal</p>
+                <p className="text-xs text-blue-600">Document principal</p>
               </div>
               <button
                 onClick={() => setRcFile(null)}
@@ -60,10 +60,10 @@ export default function UploadSection({ onAnalyse }: { onAnalyse: () => void }) 
           ) : (
             <button
               onClick={() => handleFakeUpload("rc")}
-              className="w-full border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-violet-400 hover:bg-violet-50/50 transition-colors cursor-pointer group"
+              className="w-full border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 hover:bg-blue-50/50 transition-colors cursor-pointer group"
             >
-              <DocumentArrowUpIcon className="w-10 h-10 text-gray-400 group-hover:text-violet-500 mx-auto mb-3 transition-colors" />
-              <p className="text-sm font-medium text-gray-700 group-hover:text-violet-700">
+              <DocumentArrowUpIcon className="w-10 h-10 text-gray-400 group-hover:text-blue-500 mx-auto mb-3 transition-colors" />
+              <p className="text-sm font-medium text-gray-700 group-hover:text-blue-700">
                 Déposer votre RC ici
               </p>
               <p className="text-xs text-gray-500 mt-1">
@@ -136,7 +136,7 @@ export default function UploadSection({ onAnalyse }: { onAnalyse: () => void }) 
         <button
           onClick={onAnalyse}
           disabled={!rcFile}
-          className="inline-flex items-center gap-2 px-6 py-2.5 bg-violet-600 text-white text-sm font-medium rounded-lg hover:bg-violet-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           Lancer l'analyse
         </button>

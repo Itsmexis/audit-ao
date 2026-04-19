@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Brand accent (beige crème, inspired by reference site) */
+  --color-accent-50: #FAF6EE;
+  --color-accent-100: #F4ECDF;
+  --color-accent-200: #E8DCC5;
+
+  /* Surfaces */
+  --color-surface-0: #FFFFFF;
+  --color-surface-50: #FAFAF7;
+  --color-surface-100: #F5F5F2;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+}

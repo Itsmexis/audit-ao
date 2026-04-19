@@ -1,15 +1,19 @@
-import { useState } from 'react';
-import Navigation, { type PageKey } from './components/Navigation';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Landing from './pages/Landing';
+import AppLayout from './layouts/AppLayout';
 import AnalyseRC from './pages/AnalyseRC';
 import AuditAO from './pages/AuditAO';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageKey>('analyseRC');
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
-      {currentPage === 'analyseRC' ? <AnalyseRC /> : <AuditAO />}
-    </div>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/app" element={<AppLayout />}>
+        <Route index element={<Navigate to="analyse-rc" replace />} />
+        <Route path="analyse-rc" element={<AnalyseRC />} />
+        <Route path="audit-ao" element={<AuditAO />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }

@@ -1,0 +1,107 @@
+import { Link } from 'react-router-dom';
+import { ShieldCheckIcon, LockClosedIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import Logo from '../Logo';
+import { BOOKING_URL } from './links';
+
+type FooterLink = {
+  label: string;
+  href: string;
+  internal?: boolean;
+  newTab?: boolean;
+};
+
+const columns: { title: string; links: FooterLink[] }[] = [
+  {
+    title: 'Produit',
+    links: [
+      { label: 'Fonctionnement', href: '#fonctionnement' },
+      { label: 'Tarifs', href: '#tarifs' },
+      { label: 'FAQ', href: '#faq' },
+      { label: 'Exemple de rapport', href: '/app/audit-ao', internal: true },
+    ],
+  },
+  {
+    title: 'Entreprise',
+    links: [
+      { label: 'À propos', href: '#' },
+      { label: 'Contact', href: BOOKING_URL, newTab: true },
+      { label: 'Blog', href: '#' },
+    ],
+  },
+  {
+    title: 'Légal',
+    links: [
+      { label: 'CGU', href: '#' },
+      { label: 'CGV', href: '#' },
+      { label: 'Mentions légales', href: '#' },
+      { label: 'RGPD', href: '#' },
+      { label: 'Confidentialité', href: '#' },
+    ],
+  },
+];
+
+export default function LandingFooter() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+          <div className="col-span-2">
+            <Logo className="h-7 w-auto" />
+            <p className="mt-4 text-sm text-gray-600 max-w-xs leading-relaxed">
+              L'audit de votre mémoire technique, comme si un acheteur public le dépouillait.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4 text-xs text-gray-500">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPinIcon className="w-4 h-4" /> Hébergement France
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <LockClosedIcon className="w-4 h-4" /> Données chiffrées
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheckIcon className="w-4 h-4" /> Conforme RGPD
+              </span>
+            </div>
+          </div>
+
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-sm font-semibold text-gray-950 mb-4">{col.title}</h4>
+              <ul className="space-y-2.5">
+                {col.links.map((l) => {
+                  const className =
+                    'text-sm text-gray-600 hover:text-blue-900 transition-colors';
+                  if (l.internal) {
+                    return (
+                      <li key={l.label}>
+                        <Link to={l.href} className={className}>
+                          {l.label}
+                        </Link>
+                      </li>
+                    );
+                  }
+                  return (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        className={className}
+                        {...(l.newTab && { target: '_blank', rel: 'noopener noreferrer' })}
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-gray-500">
+          <p>© {year} Deadline.ao. Tous droits réservés.</p>
+          <p>Fait en France · Pour ceux qui répondent aux marchés publics.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}

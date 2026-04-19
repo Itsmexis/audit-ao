@@ -92,7 +92,7 @@ export default function AuditResultDetail({
     <section id="audit-detail" className="scroll-mt-16">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
+          <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
             A
           </span>
           <div>
@@ -139,7 +139,7 @@ export default function AuditResultDetail({
               onClick={() => setActiveFilter(opt.key)}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                 isActive
-                  ? "bg-violet-100 text-violet-700 ring-1 ring-violet-300"
+                  ? "bg-blue-100 text-blue-700 ring-1 ring-blue-300"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -178,7 +178,7 @@ export default function AuditResultDetail({
                 <h3 className="text-sm font-bold text-gray-900">
                   {critere.nom}
                 </h3>
-                <span className="text-xs font-semibold text-violet-600 bg-violet-100 px-2 py-0.5 rounded-full">
+                <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">
                   {critere.ponderation}%
                 </span>
               </div>
@@ -218,7 +218,7 @@ export default function AuditResultDetail({
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <span className="text-sm font-semibold text-gray-900">
-                            <span className="text-violet-600 mr-2">
+                            <span className="text-blue-600 mr-2">
                               {sc.id}
                             </span>
                             {sc.nom}

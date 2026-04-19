@@ -81,7 +81,7 @@ export default function TableauPointsForts({
     <section id="synthese-reponse" className="scroll-mt-16">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
+          <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
             S
           </span>
           <div>
@@ -115,7 +115,7 @@ export default function TableauPointsForts({
         </button>
       </div>
 
-      <p className="text-xs text-violet-600 bg-violet-50 border border-violet-200 rounded-lg px-3 py-1.5 mb-4">
+      <p className="text-xs text-blue-600 bg-blue-50 border border-blue-200 rounded-lg px-3 py-1.5 mb-4">
         Ce tableau est formaté pour être collé directement dans Word/Google Docs.
         Il synthétise les réponses aux attentes et la valeur ajoutée
         pour chaque critère.
@@ -128,7 +128,7 @@ export default function TableauPointsForts({
               <h3 className="text-sm font-bold text-gray-900">
                 {critere.critereNom}
               </h3>
-              <span className="text-xs font-semibold text-violet-600 bg-violet-100 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">
                 {critere.ponderation}%
               </span>
             </div>
@@ -157,7 +157,7 @@ export default function TableauPointsForts({
                   >
                     <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
                       <span className="text-sm font-semibold text-gray-900">
-                        <span className="text-violet-600 mr-2">
+                        <span className="text-blue-600 mr-2">
                           {sc.sousCritereId}
                         </span>
                         {sc.sousCritereNom}

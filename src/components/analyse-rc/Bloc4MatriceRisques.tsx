@@ -56,7 +56,7 @@ export default function Bloc4MatriceRisques({ risques }: { risques: Risque[] }) 
   return (
     <section id="bloc-4" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-8 h-8 rounded-full bg-violet-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
           4
         </span>
         <div>
@@ -133,10 +133,10 @@ export default function Bloc4MatriceRisques({ risques }: { risques: Risque[] }) 
                       className={`flex items-start gap-2 px-3 py-2 rounded-md cursor-pointer select-none transition-colors ${
                         isDone
                           ? "bg-emerald-50 text-gray-400"
-                          : "bg-violet-50 text-violet-800"
+                          : "bg-blue-50 text-blue-800"
                       }`}
                     >
-                      <span className="text-[10px] font-bold uppercase text-violet-500 shrink-0 mt-0.5">
+                      <span className="text-[10px] font-bold uppercase text-blue-500 shrink-0 mt-0.5">
                         Reco
                       </span>
                       <span
