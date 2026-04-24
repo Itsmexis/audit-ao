@@ -39,7 +39,7 @@ export default function LandingNavbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-gray-700 hover:text-blue-900 transition-colors"
+              className="text-sm font-medium text-gray-700 hover:text-brand-900 transition-colors"
             >
               {l.label}
             </a>
@@ -49,7 +49,7 @@ export default function LandingNavbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/app/audit-ao"
-            className="text-sm font-medium text-gray-700 hover:text-blue-900 transition-colors px-3 py-2"
+            className="text-sm font-medium text-gray-700 hover:text-brand-900 transition-colors px-3 py-2"
           >
             Se connecter
           </Link>
@@ -57,7 +57,7 @@ export default function LandingNavbar() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center whitespace-nowrap rounded-full bg-blue-900 hover:bg-blue-950 text-white text-sm font-semibold px-4 py-2 transition-colors shadow-sm"
+            className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-900 hover:bg-brand-950 text-white text-sm font-semibold px-4 py-2 transition-colors shadow-sm"
           >
             Auditer un mémoire
           </a>
@@ -100,7 +100,7 @@ export default function LandingNavbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center justify-center rounded-full bg-blue-900 hover:bg-blue-950 text-white text-base font-semibold px-4 py-3 transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-brand-900 hover:bg-brand-950 text-white text-base font-semibold px-4 py-3 transition-colors"
               >
                 Auditer un mémoire
               </a>

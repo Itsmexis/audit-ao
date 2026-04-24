@@ -20,9 +20,9 @@ const typeConfig = {
   },
   amelioration: {
     label: "Amélioration",
-    badge: "bg-blue-100 text-blue-700",
+    badge: "bg-brand-100 text-brand-700",
     icon: LightBulbIcon,
-    iconColor: "text-blue-500",
+    iconColor: "text-brand-500",
   },
 };
 
@@ -38,7 +38,7 @@ export default function RecommandationsAmelioration({
   return (
     <section id="recommandations" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
           R
         </span>
         <div>

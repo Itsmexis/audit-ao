@@ -38,7 +38,7 @@ export default function ForWho() {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 leading-tight text-balance">
-              Construit pour ceux qui <span className="text-blue-900">répondent souvent.</span>
+              Construit pour ceux qui <span className="text-brand-900">répondent souvent.</span>
             </h2>
           </div>
         </FadeIn>
@@ -47,7 +47,7 @@ export default function ForWho() {
           {sectors.map((s, i) => (
             <FadeIn key={s.title} delay={i * 0.06}>
               <div className="h-full rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
-                <div className="w-11 h-11 rounded-xl bg-blue-900 flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-xl bg-brand-900 flex items-center justify-center mb-5">
                   <s.icon className="w-6 h-6 text-white" strokeWidth={1.7} />
                 </div>
                 <h3 className="text-base font-semibold text-gray-950 mb-2">

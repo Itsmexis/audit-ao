@@ -34,7 +34,7 @@ export default function Problem() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 text-center max-w-3xl mx-auto leading-tight text-balance">
             Vous écrivez à l'aveugle.
             <br />
-            <span className="text-blue-900">L'acheteur, lui, a sa grille.</span>
+            <span className="text-brand-900">L'acheteur, lui, a sa grille.</span>
           </h2>
         </FadeIn>
 
@@ -42,8 +42,8 @@ export default function Problem() {
           {pains.map((p, i) => (
             <FadeIn key={p.title} delay={i * 0.08}>
               <div className="h-full rounded-2xl bg-white border border-gray-100 p-7 shadow-sm">
-                <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
-                  <p.icon className="w-6 h-6 text-blue-900" strokeWidth={1.8} />
+                <div className="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center mb-5">
+                  <p.icon className="w-6 h-6 text-brand-900" strokeWidth={1.8} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-950 mb-2">{p.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{p.body}</p>

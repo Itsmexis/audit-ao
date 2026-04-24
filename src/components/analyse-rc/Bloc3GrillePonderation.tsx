@@ -9,7 +9,7 @@ export default function Bloc3GrillePonderation({
   return (
     <section id="bloc-3" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-1">
-        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
           3
         </span>
         <div>
@@ -29,12 +29,12 @@ export default function Bloc3GrillePonderation({
           >
             <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
               <span className="text-sm font-semibold text-gray-900">
-                <span className="text-blue-600 mr-2">
+                <span className="text-brand-600 mr-2">
                   {sc.sousCritereId}
                 </span>
                 {sc.sousCritereNom}
               </span>
-              <span className="text-sm font-bold text-blue-700">
+              <span className="text-sm font-bold text-brand-700">
                 {sc.totalPoints} pts
               </span>
             </div>
@@ -59,23 +59,23 @@ export default function Bloc3GrillePonderation({
                   {sc.items.map((item, i) => (
                     <tr
                       key={i}
-                      className={`hover:bg-gray-50 ${item.pointsEstimes == null ? "bg-blue-50/30" : ""}`}
+                      className={`hover:bg-gray-50 ${item.pointsEstimes == null ? "bg-brand-50/30" : ""}`}
                     >
                       <td className="px-4 py-2.5 text-gray-900 font-medium">
                         <div className="flex items-center gap-1.5">
                           {item.pointsEstimes == null && (
-                            <LightBulbIcon className="w-4 h-4 text-blue-400 shrink-0" />
+                            <LightBulbIcon className="w-4 h-4 text-brand-400 shrink-0" />
                           )}
                           {item.nom}
                         </div>
                       </td>
                       <td className="px-4 py-2.5 text-center">
                         {item.pointsEstimes != null ? (
-                          <span className="inline-flex items-center justify-center w-10 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">
+                          <span className="inline-flex items-center justify-center w-10 h-6 rounded-full bg-brand-100 text-brand-700 text-xs font-bold">
                             {item.pointsEstimes}
                           </span>
                         ) : (
-                          <span className="text-[10px] text-blue-400 italic">
+                          <span className="text-[10px] text-brand-400 italic">
                             suggestion
                           </span>
                         )}

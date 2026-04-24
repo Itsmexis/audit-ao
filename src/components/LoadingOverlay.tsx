@@ -54,19 +54,19 @@ export default function LoadingOverlay({
         <div className="relative w-16 h-16 mx-auto mb-5">
           <div className="absolute inset-0 rounded-full border-4 border-gray-200" />
           <div
-            className="absolute inset-0 rounded-full border-4 border-blue-500 border-t-transparent animate-spin"
+            className="absolute inset-0 rounded-full border-4 border-brand-500 border-t-transparent animate-spin"
           />
         </div>
 
         <h3 className="text-lg font-semibold text-gray-900 mb-1">{label}</h3>
-        <p className="text-sm text-blue-600 mb-4 h-5 transition-opacity">
+        <p className="text-sm text-brand-600 mb-4 h-5 transition-opacity">
           {steps[stepIndex]}
         </p>
 
         {/* Progress bar */}
         <div className="w-full bg-gray-100 rounded-full h-2.5 mb-2">
           <div
-            className="bg-blue-500 h-2.5 rounded-full transition-all duration-100"
+            className="bg-brand-500 h-2.5 rounded-full transition-all duration-100"
             style={{ width: `${progress}%` }}
           />
         </div>

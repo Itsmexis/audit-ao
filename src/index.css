@@ -3,10 +3,25 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  /* Brand accent (beige crème, inspired by reference site) */
+  /* Brand primary — Bleu électrique (Deadline) */
+  --color-brand-50: #EEEEFF;
+  --color-brand-100: #DEDFFF;
+  --color-brand-200: #BDBFFF;
+  --color-brand-300: #9496FF;
+  --color-brand-400: #6E73FF;
+  --color-brand-500: #4E53FF;
+  --color-brand-600: #3A3FE6;
+  --color-brand-700: #2A2FB8;
+  --color-brand-800: #1E2080;
+  --color-brand-900: #14155A;
+  --color-brand-950: #0A0B30;
+
+  /* Brand accent (beige crème / Flamingo pink) */
   --color-accent-50: #FAF6EE;
   --color-accent-100: #F4ECDF;
   --color-accent-200: #E8DCC5;
+  --color-accent-500: #FFA3FC;
+  --color-accent-600: #E17FDF;
 
   /* Surfaces */
   --color-surface-0: #FFFFFF;

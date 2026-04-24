@@ -67,7 +67,7 @@ export default function Bloc5ChecklistCandidat({
     <section id="bloc-5" className="scroll-mt-16">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+          <span className="w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
             5
           </span>
           <div>
@@ -96,7 +96,7 @@ export default function Bloc5ChecklistCandidat({
           >
             <div className="px-4 py-3 bg-gray-50 border-b border-gray-200">
               <span className="text-sm font-semibold text-gray-900">
-                <span className="text-blue-600 mr-2">
+                <span className="text-brand-600 mr-2">
                   {item.sousCritereId}
                 </span>
                 {item.sousCritereNom}

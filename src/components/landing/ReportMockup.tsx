@@ -32,11 +32,11 @@ const justifications = [
 export default function ReportMockup() {
   return (
     <div className="relative">
-      <div className="absolute -inset-4 bg-gradient-to-br from-blue-100/40 via-accent-100/30 to-transparent rounded-3xl blur-xl" aria-hidden />
+      <div className="absolute -inset-4 bg-gradient-to-br from-brand-100/40 via-accent-100/30 to-transparent rounded-3xl blur-xl" aria-hidden />
       <div className="relative rounded-2xl bg-white border border-gray-200 shadow-[0_20px_60px_-15px_rgba(15,23,42,0.15)] overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/60">
           <div className="flex items-center gap-2">
-            <DocumentTextIcon className="w-4 h-4 text-blue-900" />
+            <DocumentTextIcon className="w-4 h-4 text-brand-900" />
             <span className="text-xs font-semibold text-gray-700 tracking-tight">
               Rapport d'audit — mémoire technique
             </span>
@@ -85,7 +85,7 @@ export default function ReportMockup() {
 
           <section aria-labelledby="mockup-justifs" className="pt-1">
             <div className="flex items-center gap-2 mb-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 text-blue-900 text-[11px] font-semibold px-2.5 py-1 border border-blue-100">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 text-brand-900 text-[11px] font-semibold px-2.5 py-1 border border-brand-100">
                 Justifications
               </span>
             </div>

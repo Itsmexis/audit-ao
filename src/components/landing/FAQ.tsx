@@ -76,7 +76,7 @@ export default function FAQ() {
                     </span>
                     <ChevronDownIcon
                       className={`w-5 h-5 text-gray-400 shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-blue-900' : ''
+                        isOpen ? 'rotate-180 text-brand-900' : ''
                       }`}
                     />
                   </button>

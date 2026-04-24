@@ -33,13 +33,13 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28">
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-900 text-xs font-semibold px-3 py-1 border border-blue-100">
+            <span className="inline-flex items-center rounded-full bg-brand-50 text-brand-900 text-xs font-semibold px-3 py-1 border border-brand-100">
               Fonctionnement
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 leading-tight text-balance">
               3 étapes. 2 minutes.
               <br />
-              <span className="text-blue-900">Un audit sérieux.</span>
+              <span className="text-brand-900">Un audit sérieux.</span>
             </h2>
           </div>
         </FadeIn>
@@ -54,10 +54,10 @@ export default function HowItWorks() {
               <FadeIn key={s.n} delay={i * 0.1}>
                 <div className="text-center md:text-left">
                   <div className="inline-flex md:flex md:mx-0 mx-auto items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-900 text-white text-sm font-bold flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-brand-900 text-white text-sm font-bold flex items-center justify-center shadow-sm">
                       {s.n}
                     </div>
-                    <s.icon className="w-6 h-6 text-blue-900" strokeWidth={1.6} />
+                    <s.icon className="w-6 h-6 text-brand-900" strokeWidth={1.6} />
                   </div>
                   <h3 className="mt-6 text-xl font-semibold text-gray-950">{s.title}</h3>
                   <p className="mt-2 text-base text-gray-600 leading-relaxed max-w-sm">

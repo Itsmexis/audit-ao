@@ -32,7 +32,7 @@ const items = [
 const accentClasses: Record<string, { bg: string; text: string; border: string }> = {
   emerald: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-100' },
   amber: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-100' },
-  blue: { bg: 'bg-blue-50', text: 'text-blue-900', border: 'border-blue-100' },
+  blue: { bg: 'bg-brand-50', text: 'text-brand-900', border: 'border-brand-100' },
 };
 
 export default function WhatYouGet() {
@@ -42,7 +42,7 @@ export default function WhatYouGet() {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 leading-tight text-balance">
-              Un rapport d'audit, <span className="text-blue-900">pas un avis.</span>
+              Un rapport d'audit, <span className="text-brand-900">pas un avis.</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600">
               Trois éléments. Clairs. Argumentés. Actionnables.

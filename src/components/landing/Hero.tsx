@@ -17,8 +17,8 @@ export default function Hero() {
             <FadeIn>
               <span className="inline-flex items-center gap-2 rounded-full bg-white border border-gray-200 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-700" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-700" />
                 </span>
                 Audit pré-soumission · Marchés publics
               </span>
@@ -27,7 +27,7 @@ export default function Hero() {
             <FadeIn delay={0.05}>
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-tight text-gray-950 leading-[1.05]">
                 Votre mémoire technique,{' '}
-                <span className="text-blue-900">audité comme par un acheteur public.</span>
+                <span className="text-brand-900">audité comme par un acheteur public.</span>
               </h1>
             </FadeIn>
 
@@ -47,7 +47,7 @@ export default function Hero() {
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-blue-900 hover:bg-blue-950 text-white text-base font-semibold px-5 py-3 transition-colors shadow-[0_10px_25px_-8px_rgba(30,58,138,0.5)]"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand-900 hover:bg-brand-950 text-white text-base font-semibold px-5 py-3 transition-colors shadow-[0_10px_25px_-8px_rgba(30,58,138,0.5)]"
                 >
                   Auditer mon mémoire
                   <ArrowRightIcon className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function Hero() {
                   to="/app/audit-ao"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-900 text-base font-semibold px-5 py-3 transition-colors"
                 >
-                  <PlayCircleIcon className="w-5 h-5 text-blue-900" />
+                  <PlayCircleIcon className="w-5 h-5 text-brand-900" />
                   Voir un exemple
                 </Link>
               </div>

@@ -98,13 +98,13 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28">
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-900 text-xs font-semibold px-3 py-1 border border-blue-100">
+            <span className="inline-flex items-center rounded-full bg-brand-50 text-brand-900 text-xs font-semibold px-3 py-1 border border-brand-100">
               Tarifs
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-950 leading-tight text-balance">
               Un audit. Un tarif.
               <br />
-              <span className="text-blue-900">Pas de surprise.</span>
+              <span className="text-brand-900">Pas de surprise.</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600">
               Choisissez un pack adapté à votre cadence de réponse. Pas d'engagement caché.
@@ -187,7 +187,7 @@ export default function Pricing() {
                       <li key={f} className="flex gap-2">
                         <CheckIcon
                           className={`w-4 h-4 mt-0.5 shrink-0 ${
-                            isHighlighted ? 'text-accent-100' : 'text-blue-700'
+                            isHighlighted ? 'text-accent-100' : 'text-brand-700'
                           }`}
                           strokeWidth={2.5}
                         />
@@ -203,7 +203,7 @@ export default function Pricing() {
                     className={`mt-auto inline-flex items-center justify-center rounded-full px-4 py-3 text-sm font-semibold transition-colors ${
                       isHighlighted
                         ? 'bg-white text-gray-950 hover:bg-accent-100'
-                        : 'bg-blue-900 text-white hover:bg-blue-950'
+                        : 'bg-brand-900 text-white hover:bg-brand-950'
                     }`}
                   >
                     {p.cta}

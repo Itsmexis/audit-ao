@@ -25,10 +25,10 @@ const niveauConfig = {
   },
   modere: {
     label: "Modéré",
-    badge: "bg-blue-100 text-blue-700",
+    badge: "bg-brand-100 text-brand-700",
     icon: InformationCircleIcon,
-    iconColor: "text-blue-500",
-    dot: "bg-blue-400",
+    iconColor: "text-brand-500",
+    dot: "bg-brand-400",
   },
 };
 
@@ -56,7 +56,7 @@ export default function Bloc4MatriceRisques({ risques }: { risques: Risque[] }) 
   return (
     <section id="bloc-4" className="scroll-mt-16">
       <div className="flex items-center gap-3 mb-4">
-        <span className="w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
           4
         </span>
         <div>
@@ -133,10 +133,10 @@ export default function Bloc4MatriceRisques({ risques }: { risques: Risque[] }) 
                       className={`flex items-start gap-2 px-3 py-2 rounded-md cursor-pointer select-none transition-colors ${
                         isDone
                           ? "bg-emerald-50 text-gray-400"
-                          : "bg-blue-50 text-blue-800"
+                          : "bg-brand-50 text-brand-800"
                       }`}
                     >
-                      <span className="text-[10px] font-bold uppercase text-blue-500 shrink-0 mt-0.5">
+                      <span className="text-[10px] font-bold uppercase text-brand-500 shrink-0 mt-0.5">
                         Reco
                       </span>
                       <span

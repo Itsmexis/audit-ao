@@ -23,19 +23,16 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Entreprise',
     links: [
-      { label: 'À propos', href: '#' },
+      { label: 'À propos', href: 'https://www.deadline.fr/a-propos', newTab: true },
       { label: 'Contact', href: BOOKING_URL, newTab: true },
-      { label: 'Blog', href: '#' },
+      { label: 'Blog', href: 'https://www.deadline.fr/blog', newTab: true },
     ],
   },
   {
     title: 'Légal',
     links: [
-      { label: 'CGU', href: '#' },
-      { label: 'CGV', href: '#' },
-      { label: 'Mentions légales', href: '#' },
-      { label: 'RGPD', href: '#' },
-      { label: 'Confidentialité', href: '#' },
+      { label: 'Mentions légales', href: 'https://www.deadline.fr/mentions-legales', newTab: true },
+      { label: 'Confidentialité & RGPD', href: '/confidentialite', internal: true },
     ],
   },
 ];
@@ -70,7 +67,7 @@ export default function LandingFooter() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => {
                   const className =
-                    'text-sm text-gray-600 hover:text-blue-900 transition-colors';
+                    'text-sm text-gray-600 hover:text-brand-900 transition-colors';
                   if (l.internal) {
                     return (
                       <li key={l.label}>
