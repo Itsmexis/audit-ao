@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from '../Logo';
 import { BOOKING_URL } from './links';
@@ -13,6 +13,14 @@ const links = [
 export default function LandingNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -30,7 +38,12 @@ export default function LandingNavbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link to="/" aria-label="Deadline.ao — accueil" className="flex items-center">
+        <Link
+          to="/"
+          onClick={handleLogoClick}
+          aria-label="Deadline.ao — accueil"
+          className="flex items-center"
+        >
           <Logo className="h-7 w-auto" />
         </Link>
 
