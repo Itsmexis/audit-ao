@@ -14,9 +14,9 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Produit',
     links: [
-      { label: 'Fonctionnement', href: '#fonctionnement' },
-      { label: 'Tarifs', href: '#tarifs' },
-      { label: 'FAQ', href: '#faq' },
+      { label: 'Fonctionnement', href: '/#fonctionnement', internal: true },
+      { label: 'Tarifs', href: '/#tarifs', internal: true },
+      { label: 'FAQ', href: '/#faq', internal: true },
       { label: 'Exemple de rapport', href: '/app/audit-ao', internal: true },
     ],
   },
