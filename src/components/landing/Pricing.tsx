@@ -144,13 +144,9 @@ export default function Pricing() {
             const priceLabel = isOneTime
               ? `${fmt(p.price)} €`
               : billing === 'annuel'
-                ? `${fmt(annual)} €`
+                ? `${fmt(monthlyEq)} €`
                 : `${fmt(p.price)} €`;
-            const periodLabel = isOneTime
-              ? 'paiement unique'
-              : billing === 'annuel'
-                ? '/ an'
-                : '/ mois';
+            const periodLabel = isOneTime ? 'paiement unique' : '/ mois';
 
             const isHighlighted = p.highlighted;
             return (
@@ -185,7 +181,7 @@ export default function Pricing() {
                     </div>
                     {!isOneTime && billing === 'annuel' && (
                       <p className={`mt-1 text-xs ${isHighlighted ? 'text-gray-400' : 'text-gray-500'}`}>
-                        soit {fmt(monthlyEq)} €/mois · économisez {fmt(savings)} €/an
+                        facturé {fmt(annual)} €/an · économisez {fmt(savings)} €
                       </p>
                     )}
                   </div>
