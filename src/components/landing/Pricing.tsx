@@ -5,15 +5,14 @@ import { BOOKING_URL } from './links';
 
 type Billing = 'annuel' | 'mensuel';
 
+const ANNUAL_DISCOUNT = 0.10;
+
 interface Plan {
   id: string;
   name: string;
   tagline: string;
   oneTime?: boolean;
-  priceAnnual: string;
-  priceMonthly: string;
-  periodAnnual: string;
-  periodMonthly: string;
+  price: number;
   features: string[];
   cta: string;
   highlighted?: boolean;
@@ -25,10 +24,7 @@ const plans: Plan[] = [
     name: 'À la carte',
     tagline: 'Un audit, une fois. Pas plus.',
     oneTime: true,
-    priceAnnual: '99 €',
-    priceMonthly: '99 €',
-    periodAnnual: 'paiement unique',
-    periodMonthly: 'paiement unique',
+    price: 99,
     features: [
       '1 audit complet',
       '1 utilisateur',
@@ -41,10 +37,7 @@ const plans: Plan[] = [
     id: 'starter',
     name: 'Starter',
     tagline: 'Pour les répondeurs réguliers.',
-    priceAnnual: '1 999 €',
-    priceMonthly: '179 €',
-    periodAnnual: '/ an',
-    periodMonthly: '/ mois',
+    price: 179,
     features: [
       '3 audits / mois · 36 / an',
       '1 utilisateur',
@@ -57,10 +50,7 @@ const plans: Plan[] = [
     id: 'pro',
     name: 'Pro',
     tagline: 'Le choix des équipes bid.',
-    priceAnnual: '4 999 €',
-    priceMonthly: '399 €',
-    periodAnnual: '/ an',
-    periodMonthly: '/ mois',
+    price: 399,
     features: [
       '6 audits / mois · 72 / an',
       '2 utilisateurs',
@@ -75,10 +65,7 @@ const plans: Plan[] = [
     id: 'business',
     name: 'Business',
     tagline: 'Cadence haute, multi-lots.',
-    priceAnnual: '9 588 €',
-    priceMonthly: '799 €',
-    periodAnnual: '/ an',
-    periodMonthly: '/ mois',
+    price: 799,
     features: [
       '12 audits / mois · 144 / an',
       '4 utilisateurs',
@@ -89,6 +76,10 @@ const plans: Plan[] = [
     cta: 'Choisir Business',
   },
 ];
+
+const fmt = (n: number) => new Intl.NumberFormat('fr-FR').format(n);
+const annualFromMonthly = (monthly: number) =>
+  Math.round(monthly * 12 * (1 - ANNUAL_DISCOUNT));
 
 export default function Pricing() {
   const [billing, setBilling] = useState<Billing>('annuel');
@@ -125,13 +116,18 @@ export default function Pricing() {
                   role="tab"
                   aria-selected={billing === b}
                   onClick={() => setBilling(b)}
-                  className={`px-5 py-2 text-sm font-semibold rounded-full transition-all ${
+                  className={`inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-full transition-all ${
                     billing === b
                       ? 'bg-white text-gray-950 shadow-sm'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
                 >
                   {b === 'mensuel' ? 'Mensuel' : 'Annuel'}
+                  {b === 'annuel' && (
+                    <span className="inline-flex items-center rounded-full bg-accent-100 text-gray-950 text-[10px] font-bold px-1.5 py-0.5">
+                      −10 %
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
@@ -140,8 +136,22 @@ export default function Pricing() {
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
           {plans.map((p, i) => {
-            const price = billing === 'annuel' ? p.priceAnnual : p.priceMonthly;
-            const period = billing === 'annuel' ? p.periodAnnual : p.periodMonthly;
+            const isOneTime = p.oneTime;
+            const annual = isOneTime ? 0 : annualFromMonthly(p.price);
+            const monthlyEq = isOneTime ? 0 : Math.round(annual / 12);
+            const savings = isOneTime ? 0 : p.price * 12 - annual;
+
+            const priceLabel = isOneTime
+              ? `${fmt(p.price)} €`
+              : billing === 'annuel'
+                ? `${fmt(annual)} €`
+                : `${fmt(p.price)} €`;
+            const periodLabel = isOneTime
+              ? 'paiement unique'
+              : billing === 'annuel'
+                ? '/ an'
+                : '/ mois';
+
             const isHighlighted = p.highlighted;
             return (
               <FadeIn key={p.id} delay={i * 0.06}>
@@ -168,16 +178,16 @@ export default function Pricing() {
 
                   <div className="mt-6 mb-6">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-bold tracking-tight">{price}</span>
+                      <span className="text-4xl font-bold tracking-tight">{priceLabel}</span>
                       <span className={`text-sm ${isHighlighted ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {period}
+                        {periodLabel}
                       </span>
                     </div>
-                    {!p.oneTime && (
+                    {!isOneTime && (
                       <p className={`mt-1 text-xs ${isHighlighted ? 'text-gray-400' : 'text-gray-500'}`}>
                         {billing === 'annuel'
-                          ? `soit ${p.priceMonthly} équivalent mensuel`
-                          : `soit ${p.priceAnnual} en annuel`}
+                          ? `soit ${fmt(monthlyEq)} €/mois · économisez ${fmt(savings)} €/an`
+                          : `soit ${fmt(annual)} €/an en annuel (−10 %)`}
                       </p>
                     )}
                   </div>
