@@ -183,11 +183,9 @@ export default function Pricing() {
                         {periodLabel}
                       </span>
                     </div>
-                    {!isOneTime && (
+                    {!isOneTime && billing === 'annuel' && (
                       <p className={`mt-1 text-xs ${isHighlighted ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {billing === 'annuel'
-                          ? `soit ${fmt(monthlyEq)} €/mois · économisez ${fmt(savings)} €/an`
-                          : `soit ${fmt(annual)} €/an en annuel (−10 %)`}
+                        soit {fmt(monthlyEq)} €/mois · économisez {fmt(savings)} €/an
                       </p>
                     )}
                   </div>
