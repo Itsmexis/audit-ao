@@ -64,7 +64,7 @@ export default function Hero() {
 
             <FadeIn delay={0.2}>
               <p className="mt-5 text-sm text-gray-500">
-                99 € · Paiement unique · Résultat en 2 min · Aucun engagement
+                199 € · Paiement unique · Résultat en 2 min · Aucun engagement
               </p>
             </FadeIn>
           </div>

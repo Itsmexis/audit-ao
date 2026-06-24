@@ -19,7 +19,7 @@ export default function FinalCTA() {
         </FadeIn>
         <FadeIn delay={0.05}>
           <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Testez un audit complet pour 99 €. Sans engagement. Résultat en 2 minutes.
+            Testez un audit complet pour 199 €. Sans engagement. Résultat en 2 minutes.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>

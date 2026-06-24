@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: 'Puis-je ré-auditer après correction ?',
-    a: "L'audit est conçu comme un verdict complet et actionnable, pas comme un brouillon à itérer. Si vous souhaitez valider une version corrigée, un audit supplémentaire est disponible à 69 €. La comparaison automatique entre versions arrivera prochainement.",
+    a: "L'audit est conçu comme un verdict complet et actionnable, pas comme un brouillon à itérer. Si vous souhaitez valider une version corrigée, un audit supplémentaire est disponible à 149 €. La comparaison automatique entre versions arrivera prochainement.",
   },
   {
     q: 'Quels formats de fichiers sont acceptés ?',
@@ -29,11 +29,11 @@ const faqs = [
   },
   {
     q: 'Quelle différence avec un cabinet AMO ou un bid manager externe ?',
-    a: "Un cabinet AMO vous accompagne en amont, sur plusieurs jours, à plusieurs milliers d'euros. Notre audit intervient à la fin de la rédaction, en deux minutes, pour 99 €. Les deux sont complémentaires, pas substituables.",
+    a: "Un cabinet AMO vous accompagne en amont, sur plusieurs jours, à plusieurs milliers d'euros. Notre audit intervient à la fin de la rédaction, en deux minutes, pour 199 €. Les deux sont complémentaires, pas substituables.",
   },
   {
     q: 'Que se passe-t-il si je dépasse mon quota mensuel ?',
-    a: "Vous pouvez acheter des audits supplémentaires à 69 € l'unité, directement depuis votre espace. Aucun quota n'est coupé sans votre action.",
+    a: "Vous pouvez acheter des audits supplémentaires à 149 € l'unité, directement depuis votre espace. Aucun quota n'est coupé sans votre action.",
   },
   {
     q: 'Quand la cohérence avec le CCAP et le CCTP sera-t-elle disponible ?',
